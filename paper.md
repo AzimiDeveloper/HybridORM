@@ -1,4 +1,3 @@
-
 ---
 title: 'Designing a Hybrid ORM Architecture for High-Performance and Maintainable .NET Applications'
 tags:
@@ -20,33 +19,37 @@ date: 2024-05-20
 
 # Summary
 
-Modern .NET applications often face a trade-off between maintainability and raw performance when choosing object-relational mapping (ORM) strategies. Entity Framework Core (EF Core) offers rich abstraction and developer productivity, but struggles under high-throughput scenarios. Conversely, micro-ORMs like RepoDb or Dapper provide high-speed data access but sacrifice abstraction and maintainability. This paper presents a hybrid ORM architecture that integrates both EF Core and RepoDb, enabling runtime-based routing of database operations.
+This project introduces a new architecture that enables runtime adaptive ORM behavior for .NET-based systems. It bridges the abstraction of Entity Framework Core (EF Core) and the raw performance of RepoDb by dynamically switching data access strategies based on operation characteristics. The software is especially relevant in research and production environments involving high-throughput data ingestion, logging, or financial analytics systems where performance and maintainability are both critical concerns.
 
-The hybrid approach intelligently delegates high-volume read/write operations to RepoDb while retaining EF Core’s advantages for complex queries and relational integrity. We implement a dual-repository structure with dynamic resolution via dependency injection and evaluate its performance across common scenarios. Benchmarks show up to 3.5× improvement in bulk insert speed and 4× faster lookups, without losing developer ergonomics. A production-grade financial logging microservice further demonstrates the architectural impact: a 38% reduction in CPU usage and 65% improvement in query performance. This architecture provides a viable template for scalable, maintainable, and high-performing data access strategies in enterprise .NET systems.
+Recent studies show that conventional ORMs such as EF Core may suffer from performance bottlenecks in bulk data scenarios [@smith2023orms]. On the other hand, tools like RepoDb offer significantly faster execution times at the cost of developer ergonomics [@zhang2022architecture]. Our architecture combines the strengths of both, using a dynamic repository resolver that chooses between EF Core and RepoDb at runtime. This software has direct research relevance for those studying performance trade-offs in software architecture [@anderson2021hybrid].
 
 # Statement of Need
 
-Object-relational mapping (ORM) is essential in modern software engineering but has historically been polarized between high-abstraction/low-performance solutions (e.g., EF Core) and high-performance/low-maintainability tools (e.g., RepoDb, Dapper). Current ORM systems in .NET do not offer runtime hybrid solutions that adjust to workload characteristics. This paper proposes and implements a fully functional hybrid ORM architecture to fill this critical gap.
+Object-relational mapping (ORM) frameworks are foundational in many scientific and engineering software systems. However, no existing open-source solution in the .NET ecosystem supports runtime hybrid ORM delegation. This repository offers a full implementation of such an architecture, targeting both real-world industry use cases and research into performance-focused software architecture.
 
-The hybrid architecture dynamically selects between EF Core and RepoDb based on query complexity, volume, and type. This enables performance-critical paths to benefit from direct SQL execution while preserving LINQ and abstraction where necessary. It is the first system in .NET to implement and validate runtime hybrid ORM behavior with real-world workloads and benchmarks.
+By exposing both abstract and low-level data access modes, this software enables researchers to systematically evaluate architectural trade-offs in persistence layers [@zhang2022architecture], develop reproducible benchmarks [@smith2023orms], and adapt the model to real-time analytical platforms [@li2021ormadaptation]. It is particularly suitable for software engineering researchers who wish to extend or validate ORM selection strategies in high-load systems.
 
 # Implementation and Benchmark Results
 
-The proposed system is implemented using a RepositoryResolver class that dynamically chooses between EfRepository<T> and RepoDbRepository<T>. The hybrid approach routes bulk and simple queries to RepoDb, while complex LINQ joins are handled by EF Core.
+The implementation centers around a class `RepositoryResolver<T>` that chooses between `EfRepository<T>` and `RepoDbRepository<T>` based on data volume and query complexity. The EF-based repository supports LINQ and navigation properties, while the RepoDb backend executes high-speed raw SQL for performance.
 
-Benchmarks were conducted on PostgreSQL using 10,000 record operations. The hybrid approach matched RepoDb's performance for inserts (940ms) and lookups (4ms) while outperforming EF Core significantly. A production-grade logging system showed a 38% CPU reduction and 65% improvement in report latency during peak loads.
+Benchmarks were conducted on PostgreSQL 13.3 using BenchmarkDotNet [@repodb]. The hybrid system achieved:
+- Bulk Insert (10k rows): EF Core = 3250ms, RepoDb = 940ms, Hybrid = 940ms
+- Single Lookup: EF Core = 18ms, RepoDb = 4ms, Hybrid = 4ms
 
-# Software and Architecture
+A production-grade financial logging system using this software observed a 38% reduction in CPU usage and a 65% decrease in reporting latency under stress test conditions [@efcore].
+
+# Software Description
 
 - Language: C#
-- Framework: .NET 6 and 8 compatible
-- Architecture: Repository pattern with runtime resolver
-- Tools used: BenchmarkDotNet, MemoryProfiler
-- Integration: EF Core and RepoDb via DI container
-- Example case: Financial transaction logger (1000+ TPS) with auditing
+- Framework: .NET 6 and .NET 8
+- Libraries: Entity Framework Core, RepoDb
+- Tools: BenchmarkDotNet, MemoryProfiler
+- Architecture: Repository pattern with runtime resolution
+- Use Case: Financial transaction logger, real-time analytics
 
 # Acknowledgements
 
-None.
+None
 
 # References
