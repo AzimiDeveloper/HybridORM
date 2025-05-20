@@ -1,0 +1,11 @@
+name: paper
+
+on: [push, pull_request]
+
+jobs:
+  paper:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Build paper
+        uses: openjournals/openjournals-joss-action@v1.0.0
