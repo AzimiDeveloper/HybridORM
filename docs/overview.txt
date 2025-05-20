@@ -1,1 +1,38 @@
-Documentation goes here. Ensure PDF files are not placed in /src.
+
+# Documentation Overview
+
+This folder is intended to contain documentation and supplementary materials for the Hybrid ORM project.
+
+## What Belongs Here?
+
+You should include:
+- Design diagrams (e.g., class diagrams, flowcharts, architecture overviews)
+- Usage instructions (if not placed in README)
+- Examples of integration with real-world systems
+- Deployment notes
+- API structure (if applicable)
+- Anything relevant for users, reviewers, or contributors
+
+## Important Notes
+
+- Do **not** store non-source code like PDF articles inside `/src`.
+- Documentation should be in English to support international contributors.
+- Prefer Markdown (.md) or plain text (.txt) for maintainability.
+
+## Example Structure
+
+```
+docs/
+├── architecture.png
+├── usage.md
+├── performance-analysis.md
+└── integration-notes.txt
+```
+
+## Getting Started
+
+If you are reviewing this repository for JOSS or scientific evaluation:
+- Refer to `paper.md` for scientific context and goals.
+- Use the `README.md` for build and run instructions.
+- Look at this folder for extended documentation and technical design.
+
