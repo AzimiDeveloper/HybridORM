@@ -12,13 +12,42 @@ This repository supports reproducible benchmarking and integration into high-thr
 
 ```
 .
-├── src/                 # C# source code (fully documented in English)
-├── docs/                # Documentation and references
-├── benchmarks/          # BenchmarkDotNet test projects
-├── paper.md             # JOSS-formatted paper
-├── paper.bib            # BibTeX citations
+├── src/                       # Source code and integration example
+│   └── Project/
+│       └── hamafinancialmiddleware-main/   # Real-world middleware system
+├── docs/                      # Documentation and references
+├── benchmarks/                # BenchmarkDotNet test projects
+├── paper.md                   # JOSS-formatted paper
+├── paper.bib                  # BibTeX citations
 └── README.md
 ```
+
+## Real-World Example
+
+This repository includes a fully working .NET solution based on the proposed Hybrid ORM architecture:
+[`hamafinancialmiddleware-main`](./src/Project/hamafinancialmiddleware-main)
+
+This production-grade middleware system demonstrates how HybridORM principles are applied in real business domains such as:
+
+- Financial transaction logging
+- Layered service architecture
+- RepoDb + EF Core hybrid integration
+- Background services and API interactions
+- Socket server and multi-service orchestration
+
+**Structure:**
+
+```
+hamafinancialmiddleware-main/
+├── Hama.Core/
+├── Hama.Infrastructure/
+├── Hama.Service/
+├── Hama.SocketServer/
+├── WinApp/
+└── HamaFinancialMiddleware.sln
+```
+
+This example can be explored to understand how the hybrid data access strategy fits into modular, scalable software systems.
 
 ## Usage
 
