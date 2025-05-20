@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:acc="http://tempuri.org/AccountingService"
+           targetNamespace="http://tempuri.org/AccountingService"
+           elementFormDefault="qualified">
+
+  <xs:element name="InsertVoucher">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Voucher" type="acc:VoucherType"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:complexType name="VoucherType">
+    <xs:sequence>
+      <xs:element name="VoucherNumber" type="xs:string"/>
+      <xs:element name="Date" type="xs:string"/>
+      <xs:element name="Description" type="xs:string"/>
+      <xs:element name="Currency" type="xs:string"/>
+      <xs:element name="Lines" type="acc:LinesType"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="LinesType">
+    <xs:sequence>
+      <xs:element name="VoucherLine" type="acc:VoucherLineType" minOccurs="1" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="VoucherLineType">
+    <xs:sequence>
+      <xs:element name="AccountCode" type="xs:string"/>
+      <xs:element name="Description" type="xs:string"/>
+      <xs:element name="Debit" type="xs:string"/>
+      <xs:element name="Credit" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+</xs:schema>

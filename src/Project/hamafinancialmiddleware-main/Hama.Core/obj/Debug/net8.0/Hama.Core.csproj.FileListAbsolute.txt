@@ -1,0 +1,14 @@
+C:\Users\developer\Source\Repos\hamafinancialmiddleware\Hama.Core\bin\Debug\net8.0\Hama.Core.deps.json
+C:\Users\developer\Source\Repos\hamafinancialmiddleware\Hama.Core\bin\Debug\net8.0\Hama.Core.runtimeconfig.json
+C:\Users\developer\Source\Repos\hamafinancialmiddleware\Hama.Core\bin\Debug\net8.0\Hama.Core.dll
+C:\Users\developer\Source\Repos\hamafinancialmiddleware\Hama.Core\bin\Debug\net8.0\Hama.Core.pdb
+C:\Users\developer\Source\Repos\hamafinancialmiddleware\Hama.Core\obj\Debug\net8.0\Hama.Core.csproj.AssemblyReference.cache
+C:\Users\developer\Source\Repos\hamafinancialmiddleware\Hama.Core\obj\Debug\net8.0\Hama.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\developer\Source\Repos\hamafinancialmiddleware\Hama.Core\obj\Debug\net8.0\Hama.Core.AssemblyInfoInputs.cache
+C:\Users\developer\Source\Repos\hamafinancialmiddleware\Hama.Core\obj\Debug\net8.0\Hama.Core.AssemblyInfo.cs
+C:\Users\developer\Source\Repos\hamafinancialmiddleware\Hama.Core\obj\Debug\net8.0\Hama.Core.csproj.CoreCompileInputs.cache
+C:\Users\developer\Source\Repos\hamafinancialmiddleware\Hama.Core\obj\Debug\net8.0\Hama.Core.dll
+C:\Users\developer\Source\Repos\hamafinancialmiddleware\Hama.Core\obj\Debug\net8.0\refint\Hama.Core.dll
+C:\Users\developer\Source\Repos\hamafinancialmiddleware\Hama.Core\obj\Debug\net8.0\Hama.Core.pdb
+C:\Users\developer\Source\Repos\hamafinancialmiddleware\Hama.Core\obj\Debug\net8.0\Hama.Core.genruntimeconfig.cache
+C:\Users\developer\Source\Repos\hamafinancialmiddleware\Hama.Core\obj\Debug\net8.0\ref\Hama.Core.dll

@@ -1,0 +1,3 @@
+
+Scaffold-DbContext "Server=.;Database=HamaFinancialMiddleware;User Id=sa;Password=sql;TrustServerCertificate=True;" Microsoft.EntityFrameworkCore.SqlServer -DataAnnotations -OutputDir Models -force
+

@@ -1,0 +1,27 @@
+﻿<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:acc="http://tempuri.org/AccountingService">
+	<soapenv:Header/>
+	<soapenv:Body>
+		<acc:InsertVoucher>
+			<acc:Voucher>
+				<acc:VoucherNumber>10025</acc:VoucherNumber>
+				<acc:Date>2025-05-06</acc:Date>
+				<acc:Description>ثبت هزینه بیمه درمان کارکنان</acc:Description>
+				<acc:Currency>IRR</acc:Currency>
+				<acc:Lines>
+					<acc:VoucherLine>
+						<acc:AccountCode>8101</acc:AccountCode>
+						<acc:Description>هزینه بیمه - آقای احمدی</acc:Description>
+						<acc:Debit>1500000</acc:Debit>
+						<acc:Credit>0</acc:Credit>
+					</acc:VoucherLine>
+					<acc:VoucherLine>
+						<acc:AccountCode>2101</acc:AccountCode>
+						<acc:Description>بستانکار بیمه</acc:Description>
+						<acc:Debit>0</acc:Debit>
+						<acc:Credit>1500000</acc:Credit>
+					</acc:VoucherLine>
+				</acc:Lines>
+			</acc:Voucher>
+		</acc:InsertVoucher>
+	</soapenv:Body>
+</soapenv:Envelope>

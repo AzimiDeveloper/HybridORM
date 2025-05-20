@@ -1,0 +1,12 @@
+C:\Users\developer\Source\Repos\hamafinancialmiddleware\Hama.Log\bin\Debug\net8.0\Hama.Log.deps.json
+C:\Users\developer\Source\Repos\hamafinancialmiddleware\Hama.Log\bin\Debug\net8.0\Hama.Log.dll
+C:\Users\developer\Source\Repos\hamafinancialmiddleware\Hama.Log\bin\Debug\net8.0\Hama.Log.pdb
+C:\Users\developer\Source\Repos\hamafinancialmiddleware\Hama.Log\obj\Debug\net8.0\Hama.Log.csproj.AssemblyReference.cache
+C:\Users\developer\Source\Repos\hamafinancialmiddleware\Hama.Log\obj\Debug\net8.0\Hama.Log.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\developer\Source\Repos\hamafinancialmiddleware\Hama.Log\obj\Debug\net8.0\Hama.Log.AssemblyInfoInputs.cache
+C:\Users\developer\Source\Repos\hamafinancialmiddleware\Hama.Log\obj\Debug\net8.0\Hama.Log.AssemblyInfo.cs
+C:\Users\developer\Source\Repos\hamafinancialmiddleware\Hama.Log\obj\Debug\net8.0\Hama.Log.csproj.CoreCompileInputs.cache
+C:\Users\developer\Source\Repos\hamafinancialmiddleware\Hama.Log\obj\Debug\net8.0\Hama.Log.dll
+C:\Users\developer\Source\Repos\hamafinancialmiddleware\Hama.Log\obj\Debug\net8.0\refint\Hama.Log.dll
+C:\Users\developer\Source\Repos\hamafinancialmiddleware\Hama.Log\obj\Debug\net8.0\Hama.Log.pdb
+C:\Users\developer\Source\Repos\hamafinancialmiddleware\Hama.Log\obj\Debug\net8.0\ref\Hama.Log.dll

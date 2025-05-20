@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup />
+  <ItemGroup>
+    <Compile Update="Views\Components\CustomGridControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Views\Components\CustomHTMLViewer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Views\Components\CustomXMLEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Views\Forms\Documents\DocumentPatternForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\Forms\Documents\DocumentPatternCategoriesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\Forms\Documents\NosaAccountingColumnSelectorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\Forms\Documents\NosaAccountingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\Forms\Documents\NosaAccountingXMLDesigner.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\Forms\Documents\VocucherPreviewForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\Forms\Generals\BaseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\Forms\Users\LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\Forms\Generals\MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\Forms\Generals\WaitFormFancy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\Forms\Users\PermissionsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\Forms\Users\RolesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\Forms\Users\UserPermissionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Views\Forms\Users\UsersForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="Schemas\voucher-schema.xsd">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+</Project>

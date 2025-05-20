@@ -1,0 +1,12 @@
+C:\Users\developer\Source\Repos\hamafinancialmiddleware\Hama.Share\bin\Debug\net8.0\Hama.Share.deps.json
+C:\Users\developer\Source\Repos\hamafinancialmiddleware\Hama.Share\bin\Debug\net8.0\Hama.Share.dll
+C:\Users\developer\Source\Repos\hamafinancialmiddleware\Hama.Share\bin\Debug\net8.0\Hama.Share.pdb
+C:\Users\developer\Source\Repos\hamafinancialmiddleware\Hama.Share\obj\Debug\net8.0\Hama.Share.csproj.AssemblyReference.cache
+C:\Users\developer\Source\Repos\hamafinancialmiddleware\Hama.Share\obj\Debug\net8.0\Hama.Share.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\developer\Source\Repos\hamafinancialmiddleware\Hama.Share\obj\Debug\net8.0\Hama.Share.AssemblyInfoInputs.cache
+C:\Users\developer\Source\Repos\hamafinancialmiddleware\Hama.Share\obj\Debug\net8.0\Hama.Share.AssemblyInfo.cs
+C:\Users\developer\Source\Repos\hamafinancialmiddleware\Hama.Share\obj\Debug\net8.0\Hama.Share.csproj.CoreCompileInputs.cache
+C:\Users\developer\Source\Repos\hamafinancialmiddleware\Hama.Share\obj\Debug\net8.0\Hama.Share.dll
+C:\Users\developer\Source\Repos\hamafinancialmiddleware\Hama.Share\obj\Debug\net8.0\refint\Hama.Share.dll
+C:\Users\developer\Source\Repos\hamafinancialmiddleware\Hama.Share\obj\Debug\net8.0\Hama.Share.pdb
+C:\Users\developer\Source\Repos\hamafinancialmiddleware\Hama.Share\obj\Debug\net8.0\ref\Hama.Share.dll

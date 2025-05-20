@@ -1,0 +1,222 @@
+﻿<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <title>پیش‌نمایش سند حسابداری</title>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.4.1/css/buttons.dataTables.min.css">
+    <link href="./fonts/IRANSansFa/IRANSansWeb(FaNum).woff2" rel="preload" as="font" type="font/woff2" crossorigin>
+
+    <style>
+        @font-face {
+            font-family: 'IRANSansFa';
+            src: url('./fonts/IRANSansFa/IRANSansWeb(FaNum).woff2') format('woff2'), url('./fonts/IRANSansFa/IRANSansWeb(FaNum).woff') format('woff'), url('./fonts/IRANSansFa/IRANSansWeb(FaNum).ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        body {
+            font-family: 'IRANSansFa', sans-serif;
+            direction: rtl;
+            padding: 20px;
+        }
+
+        #headerTable {
+            margin:auto;
+            width: 100%;
+            max-width: 600px;
+            background: #f6f6f6;
+            padding: 16px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            
+        }
+
+            #headerTable td {
+                padding: 8px;
+                vertical-align: top;
+            }
+
+        .dt-button {
+            font-family: 'IRANSansFa' !important;
+        }
+
+        #myTable_info {
+            padding-left: 100px !important;
+        }
+        #totalDebit, #totalCredit {
+            text-align: center !important;
+        }
+
+        .green {
+            color: green;
+            text-align: center !important;
+            direction: ltr;
+        }
+
+        .red {
+            color: red;
+            text-align: center !important;
+            direction: ltr;
+        }
+
+        .footer-total {
+            font-weight: bold;
+            background: #eee;
+        }
+
+        table.dataTable thead th {
+            text-align: center;
+        }
+
+        table.dataTable tbody td {
+            text-align: center;
+        }
+
+        .left-align {
+            text-align: left !important;
+            direction: ltr !important;
+        }
+
+    </style>
+</head>
+<body>
+
+    <h2 style="text-align:center!important;">پیش‌نمایش سند حسابداری</h2>
+    <div id="headerContainer"></div>
+    <table id="myTable" class="display nowrap" style="width:100%">
+        <thead>
+            <tr>
+                <th>ردیف</th>
+                <th>کد حساب</th>
+                <th>شرح</th>
+                <th>بدهکار</th>
+                <th>بستانکار</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+        <tfoot>
+            <tr class="footer-total">
+                <td colspan="3">جمع کل</td>
+                <td id="totalDebit" class="green left-align"></td>
+                <td id="totalCredit" class="red left-align"></td>
+            </tr>
+        </tfoot>
+    </table>
+
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.4.1/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.4.1/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.4.1/js/buttons.print.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.70/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.70/vfs_fonts.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+
+
+    <script>
+        window.setXmlData = function (xmlString) {
+            try {
+                xmlString = JSON.parse(xmlString);
+            } catch (e) {
+                console.error("JSON parse error", e);
+            }
+
+            const parser = new DOMParser();
+            const xml = parser.parseFromString(xmlString, "application/xml");
+
+            const number = xml.getElementsByTagName("acc:VoucherNumber")[0]?.textContent || "";
+            const date = xml.getElementsByTagName("acc:Date")[0]?.textContent || "";
+            const desc = xml.getElementsByTagName("acc:Description")[0]?.textContent || "";
+            const currency = xml.getElementsByTagName("acc:Currency")[0]?.textContent || "";
+
+            document.getElementById("headerContainer").innerHTML = `
+                    <table id="headerTable">
+                        <tr><td>شماره سند:</td><td>${number}</td></tr>
+                        <tr><td>تاریخ:</td><td>${date}</td></tr>
+                        <tr><td>شرح:</td><td>${desc}</td></tr>
+                        <tr><td>واحد پول:</td><td>${currency}</td></tr>
+                    </table>
+                `;
+
+            const lines = xml.getElementsByTagName("acc:VoucherLine");
+            let rows = [];
+            let totalDebit = 0, totalCredit = 0;
+
+            for (let i = 0; i < lines.length; i++) {
+                const account = lines[i].getElementsByTagName("acc:AccountCode")[0]?.textContent || "";
+                const lineDesc = lines[i].getElementsByTagName("acc:Description")[0]?.textContent || "";
+                const debit = parseFloat(lines[i].getElementsByTagName("acc:Debit")[0]?.textContent || "0");
+                const credit = parseFloat(lines[i].getElementsByTagName("acc:Credit")[0]?.textContent || "0");
+
+                totalDebit += debit;
+                totalCredit += credit;
+
+                rows.push([
+                    i + 1,
+                    account,
+                    lineDesc,
+                    `<span class='green left-align'>${debit.toLocaleString()}</span>`,
+                    `<span class='red left-align'>${credit.toLocaleString()}</span>`
+                ]);
+            }
+
+            $('#totalDebit').text(totalDebit.toLocaleString());
+            $('#totalCredit').text(totalCredit.toLocaleString());
+
+            $('#myTable').DataTable({
+                destroy: true,
+                data: rows,
+                columns: [
+                    { title: "ردیف" },
+                    { title: "کد حساب" },
+                    { title: "شرح" },
+                    { title: "بدهکار" },
+                    { title: "بستانکار" }
+                ],
+                dom: 'Bfrtip',
+                buttons: [
+                    { extend: 'print', text: 'چاپ' },
+                    {
+                        text: 'خروجی اکسل',
+                        action: function (e, dt, node, config) {
+                            const data = dt.rows().data().toArray();
+
+                            // تبدیل HTML به متون ساده (حذف span و کلاس‌ها)
+                            const cleanData = data.map(row =>
+                                row.map(col => {
+                                    const div = document.createElement("div");
+                                    div.innerHTML = col;
+                                    return div.textContent || div.innerText || "";
+                                })
+                            );
+
+                            // افزودن عنوان ستون‌ها
+                            const headers = ['ردیف', 'کد حساب', 'شرح', 'بدهکار', 'بستانکار'];
+                            const worksheet = XLSX.utils.aoa_to_sheet([headers, ...cleanData]);
+
+                            const workbook = XLSX.utils.book_new();
+                            XLSX.utils.book_append_sheet(workbook, worksheet, "سند حسابداری");
+
+                            XLSX.writeFile(workbook, "voucher.xlsx");
+                        }
+                    }
+                ],
+                language: {
+                    search: "جستجو:",
+                    lengthMenu: "نمایش _MENU_ رکورد",
+                    paginate: {
+                        previous: "قبلی",
+                        next: "بعدی"
+                    },
+                    zeroRecords: "موردی یافت نشد"
+                },
+                infoCallback: function (settings, start, end, max, total, pre) {
+                    return 'از ' + start + ' تا ' + end + ' از مجموع ' + total + ' رکورد';
+                }
+            });
+        };
+    </script>
+</body>
+</html>

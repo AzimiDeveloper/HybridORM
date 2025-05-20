@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Monaco Editor</title>
+    <style>
+        html, body, #container {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+    <div id="container"></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.44.0/min/vs/loader.min.js"></script>
+    <script>
+        let editor;
+        window.editorReady = false;
+
+        require.config({ paths: { 'vs': 'https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.44.0/min/vs' } });
+        require(['vs/editor/editor.main'], function () {
+            editor = monaco.editor.create(document.getElementById('container'), {
+                value: '',
+                language: 'xml',
+                theme: 'vs',
+                automaticLayout: true,
+                fontSize: 15,
+                fontFamily: "B Nazanin"
+            });
+
+            window.editorReady = true;
+
+            // expose to global for WebView2
+            window.editor = editor;
+
+            window.setEditorValue = function (val) {
+                editor.setValue(val);
+            }
+
+            window.insertText = function (text) {
+                const pos = editor.getPosition();
+                editor.executeEdits("", [{
+                    range: new monaco.Range(pos.lineNumber, pos.column, pos.lineNumber, pos.column),
+                    text: text,
+                    forceMoveMarkers: true
+                }]);
+                editor.focus();
+            }
+
+            window.getEditorValue = function () {
+                return editor.getValue();
+            }
+        });
+    </script>
+</body>
+</html>

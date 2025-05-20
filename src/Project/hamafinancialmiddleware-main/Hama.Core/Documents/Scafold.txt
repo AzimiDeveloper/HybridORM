@@ -1,0 +1,1 @@
+dotnet ef dbcontext scaffold "Server=.;Database=HamaFinancialMiddleware;User Id=sa;Password=sql;TrustServerCertificate=True;" Microsoft.EntityFrameworkCore.SqlServer -o Entities -c HamaDbContext --context-dir Context --use-database-names --no-onconfiguring
