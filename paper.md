@@ -8,7 +8,7 @@ tags:
   - architecture
 authors:
   - name: "Mehrdad Azimi"
-    orcid: 0000-0000-0000-0000
+    orcid: 0000-0003-9751-3952
     affiliation: 1
 affiliations:
   - name: AzimiDeveloper
@@ -22,7 +22,7 @@ This paper introduces a hybrid ORM architecture that combines the flexibility of
 
 # Statement of need
 
-Developers often face a trade-off between powerful ORM features and execution speed. This hybrid model addresses that by using EF Core for complex data relationships and RepoDb for high-throughput operations.
+.NET developers often struggle with balancing advanced querying capabilities and performance. This hybrid model addresses that by using EF Core for complex data relationships and RepoDb for high-throughput operations.
 
 # Implementation
 
