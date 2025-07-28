@@ -9,13 +9,12 @@ tags:
   - High-performance
 authors:
   - name: Mehrdad Azimi
-    orcid: 0000-0000-0000-0000
+    orcid: 0009-0003-9751-3952
     affiliation: 1
 affiliations:
   - name: Independent Software Developer
     index: 1
 date: 20 May 2025
-
 ---
 
 # Summary
