@@ -52,4 +52,4 @@ A production-grade financial logging system using this software observed a 38% r
 
 None
 
-\nocite{*}
+\\nocite{*}
